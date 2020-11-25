@@ -19,9 +19,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startMethod(View v){
+        String bodyText = body.getText().toString();
         Intent toServices = new Intent(this , Services.class);
+        toServices.putExtra("body" , bodyText);
+
+        startService(toServices);
     }
     public void stopMethod(View v){
-
+        Intent toServices = new Intent(this , Services.class);
+        stopService(toServices);
     }
 }
